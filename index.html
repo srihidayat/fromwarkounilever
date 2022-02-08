@@ -31,7 +31,7 @@
    <!-- form -->
     <div class="container ">
         <div class="row col-md-6 mx-auto">
-          <div class="my-alert alert-success " role="alert">
+          <div class="my-alert alert-success d-none " role="alert">
             <i class="bi bi-check-circle-fill"></i> Data Tersimpan!
           </div>
             <form name="unilever">
@@ -124,6 +124,7 @@
         //tampilkan tombol loading, hilangkan tombol kirim
         btnLoading.classList.toggle('d-none')
         btnKirim.classList.toggle('d-none')
+        myAlert.classList.toggle('d-none')
 
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
           .then(response => {
