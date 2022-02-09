@@ -30,7 +30,6 @@
     <!-- form -->
     <div class="container">
       <div class="row col-md-6 mx-auto">
-        <div class="my-alert alert alert-success" role="alert">Success! Data Berhasil Tersimpan</div>
         <form name="unilever">
           <div class="mb-3">
             <label for="name" class="form-label">Nama Produk</label>
@@ -87,7 +86,7 @@
             <label for="exampleFormControlTextarea1" class="form-label">Discount</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="discount"></textarea>
           </div>
-          <button type="submit" class="btn btn-success btn-kirim" data-bs-dismiss="alert" aria-label="Close">Kirim</button>
+          <button type="submit" class="btn btn-success btn-kirim" data-bs-dismiss="alert" aria-label="Close" onclick="timeFunction()">Kirim</button>
           <button class="btn btn-success btn-loading d-none" type="button" disabled data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Loading...
@@ -109,7 +108,7 @@
     -->
 
     <script>
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyzekiHna2OYhzKt5h5iMdCLmtDlNNTWP77ZiTm062tyLHFUjgser-bSykzZqQXIbXn8g/exec";
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwdHyYNWwfJuin7ih3Njjn29blRvRqnxTE6f2ScK3qjtS165U7XBIKf5qRgoqUoil9f/exec";
       const form = document.forms["unilever"];
       const btnKirim = document.querySelector(".btn-kirim");
       const btnLoading = document.querySelector(".btn-loading");
@@ -128,13 +127,16 @@
             btnLoading.classList.toggle("d-none");
             btnKirim.classList.toggle("d-none");
             //tampilkan Alert
-            myAlert.classList.toggle("d-none");
+            //myAlert.classList.toggle("d-none");
             //reset form
             form.reset();
             console.log("Success!", response);
           })
           .catch((error) => console.error("Error!", error.message));
       });
+      function timeFunction() {
+            setTimeout(function(){ alert("Success! Data Berhasil Tersimpan"); }, 1000);
+        }
     </script>
   </body>
 </html>
